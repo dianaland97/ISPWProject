@@ -4,13 +4,6 @@
               To include a user specific buildfile here, simply create one in the same
               directory with the processing instruction <?eclipse.ant.import?>
               as the first entry and export the buildfile again. --><project basedir="." default="build" name="ISPWProject">
-              	<?import javafx.scene.text.*?>
-              	<?import org.jewelsea.*?>
-              	<?import javafx.geometry.*?>
-              	<?import javafx.scene.control.*?>
-              	<?import java.lang.*?>
-              	<?import javafx.scene.layout.*?>
-
     <property environment="env"/>
     <property name="ECLIPSE_HOME" value="../../eclipse/"/>
     <property name="debuglevel" value="source,lines,vars"/>
@@ -57,5 +50,10 @@
     <target description="compile project with Eclipse compiler" name="build-eclipse-compiler">
         <property name="build.compiler" value="org.eclipse.jdt.core.JDTCompilerAdapter"/>
         <antcall target="build"/>
+    </target>
+    <target name="Main">
+        <java classname="application.Main" failonerror="true" fork="yes">
+            <classpath refid="ISPWProject.classpath"/>
+        </java>
     </target>
 </project>
