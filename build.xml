@@ -17,7 +17,7 @@
         <path refid="JavaFX SDK.libraryclasspath"/>
     </path>
     <target name="init">
-        <mkdir dir="bin"/>
+        <mkdir dir="."/>
         <copy includeemptydirs="false" todir="bin">
             <fileset dir="src">
                 <exclude name="**/*.java"/>
