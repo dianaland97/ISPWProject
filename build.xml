@@ -37,7 +37,7 @@
             <classpath refid="ISPWProject.classpath"/>
         </javac>
     	
-    	<javac srcdir="./src" destdir="bin">   
+    	<javac srcdir="./src" destdir=".">   
     	    <classpath>
     	        <pathelement path="lib/jbl.jar"/>
     	    </classpath>
