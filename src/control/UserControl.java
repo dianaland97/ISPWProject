@@ -16,12 +16,12 @@ import java.io.IOException;
  * dimenticare di includere il driver mysql nel build
  * path e renderlo esportabile durante il deploy).
  * 3) visitare il seguente link (eventualmente cambiando
- * il numero di porta dell'application server, il nome
+ * il numero di porta dell'dummy server, il nome
  * del progetto ed il nome della pagina):
  * http://localhost:8080/LoginExample/LoginPage.jsp
  *
  * Per effettuare il deploy del progetto, occorre
- * installare un application server (e.g. Tomcat),
+ * installare un dummy server (e.g. Tomcat),
  * crearne un'istanza dentro eclipse e selezionare
  * quali progetti dovranno girare su quella istanza
  * di server.
