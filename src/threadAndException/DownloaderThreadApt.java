@@ -1,4 +1,6 @@
 package threadAndException;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 import java.util.Vector;
 
@@ -20,14 +22,19 @@ public class DownloaderThreadApt implements Runnable{
 	}
 	
 	public void run() {
+	
+		//Vector<String> apt1 = new Vector<String>(apt.size());
+		apt= Collections.synchronizedList(apt);
+		
 		for (int i=0; i<apt.size(); i++)
    	 	{		
-   	 	if (apt.get(i).getState().equals("Deleted")){
+   	 	if (apt.get(i).getState().equals("Delete")){
    	 		 continue; 
    	 		 }
    	 	else {
+   
    	 		//String[] parts = apt.get(i);;
-   	 		table.getItems().add(String.valueOf(apt.get(i).getId()));
+   	 		table.getItems().addAll(apt.get(1),apt.get(2));
    	 		}
    	 	}
 	}
