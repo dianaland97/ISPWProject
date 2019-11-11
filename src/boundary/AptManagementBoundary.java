@@ -67,6 +67,7 @@ public class AptManagementBoundary {
     public void initiData (String nick){
 
         information.setText("Benvenuto/a "+ nick);
+        aptManagementBean = new AptManagementBean(nick);
     }
 
 
@@ -201,22 +202,11 @@ public class AptManagementBoundary {
 
 
     public void GestioneApt (ActionEvent event) throws IOException
+    
+    
     {
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("/boundary/viewListAptManagement.fxml"));
-        Parent IndexPamParent = loader.load();
-
-        Scene tableViewScene = new Scene(IndexPamParent);
-
-        //access the controller and call a method
-        //GestioneAptBoundary controller = loader.getController();
-        //controller.getList(this.getNickname());
-
-        //This line gets the Stage information
-        Stage window = (Stage) this.getioneApt.getScene().getWindow();
-        window.setScene(tableViewScene);
-        window.setResizable(false);
-        window.show();
+    	aptManagementControl = AptManagementControl.getInstance();
+    	aptManagementControl.setControlManageApt((Stage) ((Node)event.getSource()).getScene().getWindow(), aptManagementBean.getNick());
     }
 
     public void InserisciApt(ActionEvent event) throws IOException

@@ -1,8 +1,0 @@
-/**
- * 
- */
-/**
- * @author marin
- *
- */
-package entity;

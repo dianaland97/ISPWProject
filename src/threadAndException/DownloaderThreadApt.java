@@ -20,8 +20,6 @@ public class DownloaderThreadApt implements Runnable{
 	}
 	
 	public void run() {
-
-
 		for (int i=0; i<apt.size(); i++)
    	 	{		
    	 	if (apt.get(i).getState().equals("Deleted")){
@@ -33,5 +31,4 @@ public class DownloaderThreadApt implements Runnable{
    	 		}
    	 	}
 	}
-
 }

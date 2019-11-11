@@ -78,11 +78,26 @@ public class AptManagementControl {
         DownloaderThreadApt th = new DownloaderThreadApt(apt, nick, table);
         th.run();
     }
+    
+    
+    @FXML
+    public void setControlManageApt(Stage w, String nick) throws IOException {
+    	
+    	 FXMLLoader loader = new FXMLLoader();
+         loader.setLocation(getClass().getResource("/boundary/viewListAptManagement.fxml"));
+         Parent parent = loader.load();
+         Scene tableViewScene = new Scene(parent);
 
+         //access the controller and call a method
+         AptManagementBoundary controller = loader.getController();
+         controller.getList(nick);
 
-
-
-
-
-
+         //This line gets the Stage information
+         Stage window = w;
+         window.setResizable(false);
+         window.setScene(tableViewScene);
+         window.setHeight(600);
+         window.setWidth(800);
+         window.show();
+    }
 }
