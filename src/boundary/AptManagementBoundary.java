@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import bean.AptManagementBean;
 import control.AptManagementControl;
+import entity.Apartment;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
@@ -51,15 +52,15 @@ public class AptManagementBoundary {
     private Button getioneApt;
 
     @FXML
-    private TableView table = new TableView();
+    private TableView<Apartment> table = new TableView();
     @FXML
-    TableColumn idApt = new TableColumn("ID");
+    TableColumn<?, ?> idApt = new TableColumn("ID");
     @FXML
-    TableColumn statoApt = new TableColumn("Stato");
+    TableColumn<?, ?> statoApt = new TableColumn("Stato");
     @FXML
-    TableColumn indirizzoApt = new TableColumn("Indirizzo");
+    TableColumn<?, ?> indirizzoApt = new TableColumn("Indirizzo");
     @FXML
-    TableColumn cittaApt = new TableColumn("Citta'");
+    TableColumn<?, ?> cittaApt = new TableColumn("Citta'");
 
 
     public void initiData (String nick){
@@ -89,7 +90,8 @@ public class AptManagementBoundary {
         else {
 
 
-            idApt.setCellValueFactory(new PropertyValueFactory<>("id"));
+
+       	 	idApt.setCellValueFactory(new PropertyValueFactory<>("apartmentId"));
             statoApt.setCellValueFactory(new PropertyValueFactory<>("state"));
             indirizzoApt.setCellValueFactory(new PropertyValueFactory<>("address"));
             cittaApt.setCellValueFactory(new PropertyValueFactory<>("citys"));

@@ -2,6 +2,7 @@ package threadAndException;
 import java.util.Vector;
 import entity.Apartment;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 
 public class DownloaderThreadApt implements Runnable{
 
@@ -9,7 +10,7 @@ public class DownloaderThreadApt implements Runnable{
 	private TableView<?> table;
 	private Vector<Apartment> apt;
 
-	public DownloaderThreadApt (Vector<Apartment> apt, String nickname, TableView<?> table) {
+	public DownloaderThreadApt (Vector<Apartment> apt, String nickname, TableView<Apartment> table) {
 		this.nick = nickname;
 		this.table = table;
 		this.apt = apt;

@@ -31,10 +31,9 @@
       <TableView fx:id="table" layoutX="3.0" layoutY="137.0" prefHeight="373.0" prefWidth="792.0">
         <columns>
           <TableColumn fx:id="idApt" editable="false" maxWidth="100.0" minWidth="-1.0" prefWidth="100.0" sortable="false" text="ID" />
-          <TableColumn fx:id="statoApt" editable="false" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="163.20001220703125" sortable="false" text="Stato" />
-            <TableColumn fx:id="indirizzoApt" editable="false" minWidth="0.0" prefWidth="160.79998779296875" sortable="false" text="Indirizzo" />
-            <TableColumn fx:id="cittaApt" editable="false" minWidth="0.0" prefWidth="149.60003662109375" sortable="false" text="Citta' " />
-            <TableColumn fx:id="provinciaApt" editable="false" minWidth="0.0" prefWidth="218.39996337890625" sortable="false" text="Provincia" />
+          <TableColumn fx:id="statoApt" editable="false" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="233.5999755859375" sortable="false" text="Stato" />
+            <TableColumn fx:id="indirizzoApt" editable="false" minWidth="0.0" prefWidth="210.4000244140625" sortable="false" text="Indirizzo" />
+            <TableColumn fx:id="cittaApt" editable="false" minWidth="0.0" prefWidth="248.00006103515625" sortable="false" text="Citta' " />
         </columns>
       </TableView>
       <Label layoutX="282.0" layoutY="106.0" text="Lista dei tuoi appartamenti">
