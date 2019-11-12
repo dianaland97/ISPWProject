@@ -49,14 +49,16 @@ public class AptManagementControl {
         window.show();
     }
 
-    public List<Apartment> getInformationApt(String nick) {
+    public Vector<Apartment> getInformationApt(String nick) {
 
-        List<Apartment> apart = new ArrayList<>();
+        Vector<Apartment> apart = new Vector();
         Vector<Integer> index = AptManagementDAO.getIdApt(nick);
         for (int i = 0; i < index.size(); i++) {
             apart.add(AptManagementDAO.getInformationApt(nick, index.get(i)));
         }
+       
         return apart;
+        
     }
 
     public boolean checkIdAndStateApartment (String nick){
@@ -73,7 +75,7 @@ public class AptManagementControl {
     @FXML
     public void printInformationAptOnTable (String nick, TableView table){
 
-        List<Apartment> apt = getInformationApt(nick);
+        Vector<Apartment> apt = getInformationApt(nick);
 
         DownloaderThreadApt th = new DownloaderThreadApt(apt, nick, table);
         th.run();

@@ -59,9 +59,7 @@ public class AptManagementBoundary {
     @FXML
     TableColumn indirizzoApt = new TableColumn("Indirizzo");
     @FXML
-    TableColumn cittaApt = new TableColumn("Città");
-    @FXML
-    TableColumn provinciaApt = new TableColumn("Provincia");
+    TableColumn cittaApt = new TableColumn("Citta'");
 
 
     public void initiData (String nick){
@@ -95,7 +93,6 @@ public class AptManagementBoundary {
             statoApt.setCellValueFactory(new PropertyValueFactory<>("state"));
             indirizzoApt.setCellValueFactory(new PropertyValueFactory<>("address"));
             cittaApt.setCellValueFactory(new PropertyValueFactory<>("citys"));
-            provinciaApt.setCellValueFactory(new PropertyValueFactory<>("state"));
 
             aptManagementControl.printInformationAptOnTable(aptManagementBean.getNick(), table);
         }

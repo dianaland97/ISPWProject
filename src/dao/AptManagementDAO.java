@@ -32,6 +32,7 @@ public class AptManagementDAO {
             preparedStatement.setString(1, nickname);
             preparedStatement.setInt (2, idApt);
             ResultSet resultSet = preparedStatement.executeQuery();
+            
 
             if (!resultSet.first()) //rs empty
                 return null;
@@ -53,7 +54,7 @@ public class AptManagementDAO {
                     String title = resultSet.getString("title");
                     String shortdescription = resultSet.getString("shortdescription");
                     String fulldescription = resultSet.getString("fulldescription");
-                    double agvevaluation = resultSet.getDouble("agvevaluation");
+                    double agvevaluation = resultSet.getDouble("avgevaluation");
                     String creationdate = resultSet.getString("creationdate");
                     double rentcost = resultSet.getDouble("rentcost");
                     apartment = new Apartment(idApt, city, agvevaluation, registeredUser, address, cap, plane,
@@ -155,6 +156,10 @@ public class AptManagementDAO {
         }catch (SQLException e) {
             e.printStackTrace();
         }
+        for (int i = 0; i<image.size(); i++) {
+        	System.out.println ("appartamento = "+ image.get(i).getClass().getName().toString());;
+        }
+        
         return image;
     }
 
@@ -195,7 +200,7 @@ public class AptManagementDAO {
         Vector<Integer> app = new Vector<Integer>();
         try {
 
-            PreparedStatement preparedStatement = DBhelper.getDBInstance().getConnection().prepareStatement(Query.selectApt, ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+            PreparedStatement preparedStatement = DBhelper.getDBInstance().getConnection().prepareStatement(Query.selectIdApt, ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
             //Connection connection = DBhelper.getDBInstance().getConnection();
             //PreparedStatement preparedStatement = null;
             //preparedStatement = connection.prepareStatement(Query.checkForUsername, ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
@@ -217,6 +222,9 @@ public class AptManagementDAO {
         }catch (SQLException e) {
             e.printStackTrace();
         }
+        
+        System.out.println ("id apt = "+ app);
+       
         return app;
     }
 }

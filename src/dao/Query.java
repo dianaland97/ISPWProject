@@ -16,9 +16,10 @@ class Query {
     //select query
     static final String checkForUsername = "SELECT * FROM reguser where nickname = ? AND password = ? ;";
     static final String selectApt = "SELECT * from apartment, reguser where nickname = ? and apartment.ownernick=reguser.nickname and id = ?;";
-    static final String selectRoomOfApt = "SELECT * from room, reguser where nickname = ? and idapartament = ? ";
+    static final String selectIdApt = "SELECT * from apartment, reguser where nickname = ? and apartment.ownernick=reguser.nickname";
+    static final String selectRoomOfApt = "SELECT * from room, reguser where nickname = ? and room.idapartment = ? ";
     static final String selectServiceApt = "SELECT * from aptservice where idapt = ?";
-    static final String selectImageApt = "SELECT * from aptimage where idapt = ?";
+    static final String selectImageApt = "SELECT * from aptimage where idapartment = ?";
     static final String selectUser = "SELECT * from reguser where nickname = ?";
     static final String selectTenants = "SELECT * FROM RegUser WHERE role='tenant'";
     static final String selectRA = "SELECT Apartment.id, Apartment.city, Apartment.cost, ARRAY_AGG(ApartmentService.nameservice) " +

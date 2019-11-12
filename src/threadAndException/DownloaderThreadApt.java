@@ -1,30 +1,21 @@
 package threadAndException;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.List;
 import java.util.Vector;
-
 import entity.Apartment;
 import javafx.scene.control.TableView;
 
 public class DownloaderThreadApt implements Runnable{
 
 	private String nick;
-	private TableView table;
-	private List<Apartment> apt;
+	private TableView<?> table;
+	private Vector<Apartment> apt;
 
-	public DownloaderThreadApt (List<Apartment> apt, String nickname, TableView<?> table) {
-		
+	public DownloaderThreadApt (Vector<Apartment> apt, String nickname, TableView<?> table) {
 		this.nick = nickname;
 		this.table = table;
 		this.apt = apt;
-		
 	}
-	
 	public void run() {
 	
-		//Vector<String> apt1 = new Vector<String>(apt.size());
-		apt= Collections.synchronizedList(apt);
 		
 		for (int i=0; i<apt.size(); i++)
    	 	{		
@@ -32,9 +23,14 @@ public class DownloaderThreadApt implements Runnable{
    	 		 continue; 
    	 		 }
    	 	else {
-   
-   	 		//String[] parts = apt.get(i);;
-   	 		table.getItems().addAll(apt.get(1),apt.get(2));
+   	 		Vector<String> part =  new Vector<String>();
+   	 		part.add(apt.get(i).getAddress());
+   	 		part.add(Integer.toString(apt.get(i).getApartmentId()));
+   	 		part.add(apt.get(i).getState());
+   	 		part.add(apt.get(i).getCitys());
+   	 		String [] partStrings = part.get(i).split(",");
+   	 		Apartment apartment = new Apartment(partStrings[0],partStrings[1],partStrings[2],partStrings[3]);
+   	 		table.getItems().add(apartment);
    	 		}
    	 	}
 	}
