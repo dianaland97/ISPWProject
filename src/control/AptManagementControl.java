@@ -3,6 +3,7 @@ package control;
 import boundary.AptManagementBoundary;
 import dao.AptManagementDAO;
 import entity.Apartment;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -15,6 +16,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Vector;
+
 
 public class AptManagementControl {
 
@@ -78,7 +80,8 @@ public class AptManagementControl {
         Vector<Apartment> apt = getInformationApt(nick);
 
         DownloaderThreadApt th = new DownloaderThreadApt(apt, nick, table);
-        th.run();
+        Platform.runLater(th);
+        //th.run();
     }
     
     

@@ -2,6 +2,8 @@ package boundary;
 
 import java.io.IOException;
 
+import com.sun.media.jfxmediaimpl.platform.Platform;
+
 import bean.AptManagementBean;
 import control.AptManagementControl;
 import entity.Apartment;
@@ -52,15 +54,15 @@ public class AptManagementBoundary {
     private Button getioneApt;
 
     @FXML
-    private TableView<Apartment> table = new TableView();
+    private TableView table;
     @FXML
-    TableColumn<?, ?> idApt = new TableColumn("ID");
+    TableColumn id;
     @FXML
-    TableColumn<?, ?> statoApt = new TableColumn("Stato");
+    TableColumn state;
     @FXML
-    TableColumn<?, ?> indirizzoApt = new TableColumn("Indirizzo");
+    TableColumn address;
     @FXML
-    TableColumn<?, ?> cittaApt = new TableColumn("Citta'");
+    TableColumn city;
 
 
     public void initiData (String nick){
@@ -84,18 +86,13 @@ public class AptManagementBoundary {
             this.controlField.setText("Nessun appartamento registrato");
         }
 
-        //table.getColumns().addAll(idApt, statoApt, indirizzoApt, cittaApt, provinciaApt);
-
-
         else {
 
-
-
-       	 	idApt.setCellValueFactory(new PropertyValueFactory<>("apartmentId"));
-            statoApt.setCellValueFactory(new PropertyValueFactory<>("state"));
-            indirizzoApt.setCellValueFactory(new PropertyValueFactory<>("address"));
-            cittaApt.setCellValueFactory(new PropertyValueFactory<>("citys"));
-
+       	 	id.setCellValueFactory(new PropertyValueFactory<>("id"));
+            state.setCellValueFactory(new PropertyValueFactory<>("state"));
+            address.setCellValueFactory(new PropertyValueFactory<>("address"));
+            city.setCellValueFactory(new PropertyValueFactory<>("citys"));
+            
             aptManagementControl.printInformationAptOnTable(aptManagementBean.getNick(), table);
         }
 

@@ -8,7 +8,6 @@ import java.util.List;
 public class Apartment {
     private int apartmentId;
     private RegisteredUser owner;
-
     private String address;
     private String cap;
     private Cities city;
@@ -19,7 +18,6 @@ public class Apartment {
     private double totalDimension;
     private double freeSpace;
     private int numberOfRooms;
-
     private String state;
     private String title;
     private String description;
@@ -78,9 +76,10 @@ public class Apartment {
         this.state = state;
     }
     
-    public Apartment(String address, String id, String state, String city) {
+    public Apartment(String id, String state,String address,String city) {
     	this.address = address;
     	this.apartmentId = Integer.parseInt(id);
+    	this.state = state;
     	this.citys = city;
     }
     
