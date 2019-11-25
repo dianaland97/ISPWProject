@@ -28,12 +28,12 @@
             <Font name="System Italic" size="15.0" />
          </font>
       </Label>
-      <TableView fx:id="table" layoutX="3.0" layoutY="137.0" prefHeight="373.0" prefWidth="792.0">
+      <TableView fx:id="table" layoutX="8.0" layoutY="136.0" prefHeight="366.0" prefWidth="781.0">
         <columns>
-          <TableColumn fx:id="id" editable="false" maxWidth="100.0" minWidth="-1.0" prefWidth="100.0" resizable="false" sortable="false" text="ID" />
-          <TableColumn fx:id="state" editable="false" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="233.5999755859375" resizable="false" sortable="false" text="Stato" />
-            <TableColumn fx:id="address" editable="false" minWidth="0.0" prefWidth="210.4000244140625" resizable="false" sortable="false" text="Indirizzo" />
-            <TableColumn fx:id="city" editable="false" minWidth="0.0" prefWidth="248.00006103515625" resizable="false" sortable="false" text="Citta' " />
+          <TableColumn fx:id="id" editable="false" maxWidth="110.39999389648438" minWidth="-1.0" prefWidth="110.39999389648438" resizable="false" sortable="false" text="ID" />
+          <TableColumn fx:id="state" editable="false" maxWidth="185.60003662109375" minWidth="-1.0" prefWidth="176.00003051757812" resizable="false" sortable="false" text="Stato" />
+            <TableColumn fx:id="address" editable="false" maxWidth="369.5999755859375" minWidth="-1.0" prefWidth="288.79998779296875" resizable="false" sortable="false" text="Indirizzo" />
+            <TableColumn fx:id="city" editable="false" maxWidth="493.5999755859375" minWidth="-1.0" prefWidth="203.19989013671875" resizable="false" sortable="false" text="Citta' " />
         </columns>
       </TableView>
       <Label layoutX="282.0" layoutY="106.0" text="Lista dei tuoi appartamenti">

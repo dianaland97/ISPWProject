@@ -76,8 +76,8 @@ public class UserBoundary {
         }
     }
 
-    public void initiData (UserBean userPam){
-        information.setText("Benvenuto/a "+ userPam.getNickname());
+    public void initiData (String nick){
+        information.setText("Benvenuto/a "+ nick);
     }
 
 }

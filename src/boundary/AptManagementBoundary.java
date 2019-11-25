@@ -112,6 +112,7 @@ public class AptManagementBoundary {
 	    	 		}
 
         }
+        */
 
         textField.textProperty().addListener(new ChangeListener<String>() {
             @Override
@@ -122,7 +123,7 @@ public class AptManagementBoundary {
             }
         });
 
- */
+ 
 
     }
 
@@ -171,35 +172,10 @@ public class AptManagementBoundary {
 
     @FXML
     void returnHome(ActionEvent event) throws IOException {
-
-        /*
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("IndexPam.fxml"));
-        Parent IndexPamParent = loader.load();
-
-        Scene tableViewScene = new Scene(IndexPamParent);
-
-        //access the controller and call a method
-        IndexPamBoundary controller = loader.getController();
-        controller.initData(gestioneBean.getNick());
-
-        //This line gets the Stage information
-        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
-
-        window.setScene(tableViewScene);
-        window.setResizable(false);
-        window.show();
-
-         */
-
-
+    	aptManagementControl.returnHomeIndexPam((Stage)((Node)event.getSource()).getScene().getWindow(), aptManagementBean.getNick());
     }
 
-
-
     public void GestioneApt (ActionEvent event) throws IOException
-    
-    
     {
     	aptManagementControl = AptManagementControl.getInstance();
     	aptManagementControl.setControlManageApt((Stage) ((Node)event.getSource()).getScene().getWindow(), aptManagementBean.getNick());

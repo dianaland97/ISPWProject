@@ -1,9 +1,11 @@
 package control;
 
 import boundary.AptManagementBoundary;
+import boundary.UserBoundary;
 import dao.AptManagementDAO;
 import entity.Apartment;
 import javafx.application.Platform;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -17,6 +19,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Vector;
 
+import bean.AptManagementBean;
+
 
 public class AptManagementControl {
 
@@ -27,6 +31,7 @@ public class AptManagementControl {
             instance = new AptManagementControl();
         return instance;
     }
+
 
     private AptManagementControl() {
     }
@@ -52,15 +57,12 @@ public class AptManagementControl {
     }
 
     public Vector<Apartment> getInformationApt(String nick) {
-
         Vector<Apartment> apart = new Vector();
         Vector<Integer> index = AptManagementDAO.getIdApt(nick);
         for (int i = 0; i < index.size(); i++) {
             apart.add(AptManagementDAO.getInformationApt(nick, index.get(i)));
         }
-       
         return apart;
-        
     }
 
     public boolean checkIdAndStateApartment (String nick){
@@ -104,5 +106,26 @@ public class AptManagementControl {
          window.setHeight(600);
          window.setWidth(800);
          window.show();
+    }
+    
+    
+    @FXML
+    public void returnHomeIndexPam(Stage w, String nick) throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("/boundary/indexPam.fxml"));
+        Parent IndexPamParent = loader.load();
+
+        Scene tableViewScene = new Scene(IndexPamParent);
+
+        //access the controller and call a method
+        AptManagementBoundary controller = loader.getController();
+        controller.initiData(nick);
+
+        //This line gets the Stage information
+        Stage window = w;
+
+        window.setScene(tableViewScene);
+        window.setResizable(false);
+        window.show();
     }
 }
