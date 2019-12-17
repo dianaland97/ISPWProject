@@ -71,18 +71,19 @@ public class AptManagementBoundary {
     @FXML
     private ImageView image;
 
-
-    public void initiData (String nick){
-
+    
+    @FXML
+    public void initialize (){
+    	image.setImage(new Image(getClass().getResource("/Logo.png").toString(), true));
+    }
+    //inizializzatore IndexPam
+    public void initData (String nick){
         information.setText("Benvenuto/a "+ nick);
         aptManagementBean = new AptManagementBean(nick);
-         }
-
-
-    //inizializzatore pagina gestioneApt lanciata da indexPam
+        }
+    
+    //inizializzatore viewListAptManagement
     public void getList(String nick) {
-
-    	image.setImage(new Image(getClass().getResource("/Logo.png").toString(), true));
         aptManagementBean = new AptManagementBean(nick);
         aptManagementControl = AptManagementControl.getInstance();
 
@@ -131,8 +132,10 @@ public class AptManagementBoundary {
         });
 
     }
+    
+ 
 
-
+    //Bottone all'interno di viewListAptManagement
     @FXML
     void goToTheNextPage(ActionEvent event) throws IOException {
         
@@ -159,7 +162,11 @@ public class AptManagementBoundary {
 
          
     }
-
+    //inizializzatore viewInformationApt
+    public void inizializerIndietro (String nick) {
+    	aptManagementBean = new AptManagementBean(nick);
+        aptManagementControl = AptManagementControl.getInstance();
+    }
 
     @FXML
     void returnHome(ActionEvent event) throws IOException {
@@ -191,21 +198,15 @@ public class AptManagementBoundary {
         window.show();
     }
     
-    public void initData (String nick){
-    	image.setImage(new Image(getClass().getResource("/Logo.png").toString(), true));
-    }
-    
+   
     
     @FXML
     void eliminaAppartamento(ActionEvent event) {
-
     }
 
     @FXML
     void indietro(ActionEvent event) throws IOException {
-    	
-    	aptManagementControl.indietro((Stage) ((Node)event.getSource()).getScene().getWindow(), aptManagementBean.getNick());
-
+    	aptManagementControl.indietro((Stage) ((Node)event.getSource()).getScene().getWindow(), aptManagementBean.getNick());	
     }
 
     @FXML
@@ -215,6 +216,5 @@ public class AptManagementBoundary {
 
     @FXML
     void modificaAppartamento(ActionEvent event) {
-
     }
 }

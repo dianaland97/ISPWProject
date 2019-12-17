@@ -46,7 +46,7 @@ public class AptManagementControl {
 
         //access the controller and call a method
         AptManagementBoundary controller = loader.getController();
-        controller.initiData(nick);
+        controller.initData(nick);
 
         //This line gets the Stage information
         Stage window = w;
@@ -139,7 +139,7 @@ public class AptManagementControl {
 
         //access the controller and call a method
         AptManagementBoundary controller = loader.getController();
-        controller.initiData(nick);
+        controller.initData(nick);
 
         //This line gets the Stage information
         Stage window = w;
@@ -159,7 +159,7 @@ public class AptManagementControl {
         Scene tableViewScene = new Scene(IndexPamParent);
         //access the controller and call a method
         AptManagementBoundary controller = loader.getController();
-        controller.initData(nick);
+        controller.cavolo(nick);
         //This line gets the Stage information
         Stage window = w ;
         window.setScene(tableViewScene);

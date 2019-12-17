@@ -74,7 +74,7 @@ public class UserBoundary {
         }
     }
 
-    public void initiData (String nick){
+    public void initData (String nick){
         information.setText("Benvenuto/a "+ nick);
     }
 
