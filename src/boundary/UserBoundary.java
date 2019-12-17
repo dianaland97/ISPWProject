@@ -43,8 +43,6 @@ public class UserBoundary {
 
     @FXML
     private Label information;
-    //hello babyyyyy
-    //yoh
 
     @FXML
     void clear(ActionEvent event) {

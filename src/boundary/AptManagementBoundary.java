@@ -1,5 +1,6 @@
 package boundary;
 
+import java.awt.Event;
 import java.io.IOException;
 
 import com.sun.media.jfxmediaimpl.platform.Platform;
@@ -22,7 +23,10 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
+import threadAndException.EditTextException;
 
 public class AptManagementBoundary {
 
@@ -64,18 +68,21 @@ public class AptManagementBoundary {
     @FXML
     TableColumn city;
 
+    @FXML
+    private ImageView image;
+
 
     public void initiData (String nick){
 
         information.setText("Benvenuto/a "+ nick);
         aptManagementBean = new AptManagementBean(nick);
-    }
+         }
 
 
     //inizializzatore pagina gestioneApt lanciata da indexPam
     public void getList(String nick) {
 
-
+    	image.setImage(new Image(getClass().getResource("/Logo.png").toString(), true));
         aptManagementBean = new AptManagementBean(nick);
         aptManagementControl = AptManagementControl.getInstance();
 
@@ -117,45 +124,29 @@ public class AptManagementBoundary {
         textField.textProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-                if (!newValue.matches("\\d{0,7}(\\d{0,4})?")) {
-                    textField.setText(oldValue);
+            	if (!newValue.matches("\\d{0,7}(\\d{0,4})?")) {
+            		textField.setText(oldValue);
                 }
             }
         });
-
- 
 
     }
 
 
     @FXML
     void goToTheNextPage(ActionEvent event) throws IOException {
-        //lancio eccezione su campo vuoto
-        /*
+        
+        
         try {
             if (!this.textField.getText().isEmpty()) {
                 int setId= Integer.parseInt(this.textField.getText());
-                gestioneBean.setId(setId);
-                boolean validateIndice = gestioneBean.validateIndice();
-
-                //lancio eccezione su inserimento ID errato
+                aptManagementBean.setId(setId);
+                boolean validateIndice = aptManagementControl.checkId(aptManagementBean.getId(), aptManagementBean.getNick());
+                
                 try {
                     if (validateIndice==true) {
 
-                        //System.out.println(setId,this.nickname);
-
-                        FXMLLoader loader = new FXMLLoader();
-                        loader.setLocation(getClass().getResource("VisualizzaApt.fxml"));
-                        Parent IndexPamParent = loader.load();
-                        Scene tableViewScene = new Scene(IndexPamParent);
-                        //access the controller and call a method
-                        VisualizzaAptBoundary controller = loader.getController();
-                        controller.initData(setId,this.nickname);
-                        //This line gets the Stage information
-                        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
-                        window.setScene(tableViewScene);
-                        window.setResizable(false);
-                        window.show();
+                        aptManagementControl.goToTheNextPage((Stage)((Node)event.getSource()).getScene().getWindow(), aptManagementBean.getNick());
                     }
                     else {
                         throw new EditTextException();
@@ -166,7 +157,7 @@ public class AptManagementBoundary {
             }}catch(EditTextException exc) {
             this.controlField.setText(exc.emptyEditText());}
 
-         */
+         
     }
 
 
@@ -199,8 +190,31 @@ public class AptManagementBoundary {
         window.setResizable(false);
         window.show();
     }
+    
+    public void initData (String nick){
+    	image.setImage(new Image(getClass().getResource("/Logo.png").toString(), true));
+    }
+    
+    
+    @FXML
+    void eliminaAppartamento(ActionEvent event) {
+
+    }
+
+    @FXML
+    void indietro(ActionEvent event) throws IOException {
+    	
+    	aptManagementControl.indietro((Stage) ((Node)event.getSource()).getScene().getWindow(), aptManagementBean.getNick());
+
+    }
+
+    @FXML
+    void modifcaServizi(ActionEvent event) {
+
+    }
+
+    @FXML
+    void modificaAppartamento(ActionEvent event) {
+
+    }
 }
-
-
-
-

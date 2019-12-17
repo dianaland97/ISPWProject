@@ -8,6 +8,7 @@ import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TableView;
@@ -75,6 +76,25 @@ public class AptManagementControl {
 
         return true;
     }
+    
+    public boolean checkId (int id, String nick){
+
+        List<Apartment> apt = getInformationApt(nick);
+
+        if (apt.isEmpty()){
+            return false;
+        }
+        
+        else {
+        	for ( int i = 0; i < apt.size(); i++) {
+        		if(apt.get(i).getApartmentId() == id) return true;
+        	}
+        }
+
+        return false;
+    }
+    
+    
 
     @FXML
     public void printInformationAptOnTable (String nick, TableView table){
@@ -126,6 +146,43 @@ public class AptManagementControl {
 
         window.setScene(tableViewScene);
         window.setResizable(false);
+        window.setHeight(600);
+        window.setWidth(800);
+        window.show();
+    }
+    
+    @FXML
+    public void goToTheNextPage(Stage w, String nick) throws IOException {
+    	FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("/boundary/viewInformationApt.fxml"));
+        Parent IndexPamParent = loader.load();
+        Scene tableViewScene = new Scene(IndexPamParent);
+        //access the controller and call a method
+        AptManagementBoundary controller = loader.getController();
+        controller.initData(nick);
+        //This line gets the Stage information
+        Stage window = w ;
+        window.setScene(tableViewScene);
+        window.setResizable(false);
+        window.setHeight(600);
+        window.setWidth(800);
+        window.show();
+    }
+    @FXML
+    public void indietro(Stage w, String nick) throws IOException {
+    	FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("/boundary/viewListAptManagement.fxml"));
+        Parent IndexPamParent = loader.load();
+        Scene tableViewScene = new Scene(IndexPamParent);
+        //access the controller and call a method
+        AptManagementBoundary controller = loader.getController();
+        controller.getList(nick);
+        //This line gets the Stage information
+        Stage window = w ;
+        window.setScene(tableViewScene);
+        window.setResizable(false);
+        window.setHeight(600);
+        window.setWidth(800);
         window.show();
     }
 }
