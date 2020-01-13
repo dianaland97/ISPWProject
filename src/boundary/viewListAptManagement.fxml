@@ -23,7 +23,7 @@
             <Font name="System Italic" size="12.0" />
          </font>
       </Button>
-      <Label layoutX="62.0" layoutY="523.0" text="Inserisci l' id dell' appartamento che vuoi modificare">
+      <Label fx:id="controlField" layoutX="62.0" layoutY="523.0" text="Inserisci l' id dell' appartamento che vuoi modificare">
          <font>
             <Font name="System Italic" size="15.0" />
          </font>
@@ -39,11 +39,6 @@
       <Label layoutX="282.0" layoutY="106.0" text="Lista dei tuoi appartamenti">
          <font>
             <Font name="System Italic" size="20.0" />
-         </font>
-      </Label>
-      <Label fx:id="controlField" layoutX="384.0" layoutY="559.0" text="Nessun ID inserito">
-         <font>
-            <Font name="System Italic" size="16.0" />
          </font>
       </Label>
       <Button fx:id="home" layoutX="723.0" layoutY="521.0" mnemonicParsing="false" onAction="#returnHome" text="HOME">

@@ -40,7 +40,7 @@ public class AptManagementBoundary {
     private TextField textField;
 
     @FXML
-    private Label controlField = new Label();
+    private Label controlField;
 
     @FXML
     private Button ok;
@@ -81,6 +81,11 @@ public class AptManagementBoundary {
         information.setText("Benvenuto/a "+ nick);
         aptManagementBean = new AptManagementBean(nick);
         }
+    
+    public void cavolo (String nick) {
+     	aptManagementBean = new AptManagementBean (nick);
+    	aptManagementControl = AptManagementControl.getInstance();
+    }
     
     //inizializzatore viewListAptManagement
     public void getList(String nick) {
@@ -132,8 +137,6 @@ public class AptManagementBoundary {
         });
 
     }
-    
- 
 
     //Bottone all'interno di viewListAptManagement
     @FXML
@@ -206,12 +209,11 @@ public class AptManagementBoundary {
 
     @FXML
     void indietro(ActionEvent event) throws IOException {
-    	aptManagementControl.indietro((Stage) ((Node)event.getSource()).getScene().getWindow(), aptManagementBean.getNick());	
+    	aptManagementControl.indietro((Stage) ((Node)event.getSource()).getScene().getWindow(), aptManagementBean.getNick());
     }
 
     @FXML
     void modifcaServizi(ActionEvent event) {
-
     }
 
     @FXML

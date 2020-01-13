@@ -33,24 +33,24 @@
             <Font name="System Italic" size="14.0" />
          </font>
       </Button>
-      <Button fx:id="eliminaAppartamento" layoutX="243.0" layoutY="489.0" mnemonicParsing="false" onAction="#eliminaAppartamento" prefHeight="39.0" prefWidth="158.0" text="Elimina appartamento">
+      <Button fx:id="eliminaAppartamento" layoutX="221.0" layoutY="488.0" mnemonicParsing="false" onAction="#eliminaAppartamento" prefHeight="39.0" prefWidth="158.0" text="Elimina appartamento">
          <font>
             <Font name="System Italic" size="14.0" />
          </font>
       </Button>
-      <Button fx:id="modificaAppartamento" layoutX="452.0" layoutY="489.0" mnemonicParsing="false" onAction="#modificaAppartamento" prefHeight="39.0" prefWidth="166.0" text="Modifica appartamento">
+      <Button fx:id="modificaAppartamento" layoutX="422.0" layoutY="489.0" mnemonicParsing="false" onAction="#modificaAppartamento" prefHeight="39.0" prefWidth="166.0" text="Modifica appartamento">
          <font>
             <Font size="14.0" />
          </font>
       </Button>
-      <Button fx:id="indietro" layoutX="712.0" layoutY="539.0" mnemonicParsing="false" onAction="#indietro" prefHeight="34.0" prefWidth="58.0" text="Indietro">
+      <Button fx:id="indietro" layoutX="713.0" layoutY="491.0" mnemonicParsing="false" onAction="#indietro" prefHeight="34.0" prefWidth="72.0" text="Indietro">
          <font>
-            <Font name="System Italic" size="12.0" />
+            <Font name="System Italic" size="14.0" />
          </font>
       </Button>
-      <Button fx:id="home" layoutX="638.0" layoutY="539.0" mnemonicParsing="false" onAction="#returnHome" prefHeight="33.0" prefWidth="58.0" text="Home">
+      <Button fx:id="home" layoutX="634.0" layoutY="492.0" mnemonicParsing="false" onAction="#returnHome" prefHeight="33.0" prefWidth="58.0" text="Home">
          <font>
-            <Font name="System Italic" size="12.0" />
+            <Font name="System Italic" size="14.0" />
          </font>
       </Button>
       <Label fx:id="label" layoutX="14.0" layoutY="141.0" text="Label" />
